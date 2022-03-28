@@ -33,3 +33,12 @@ const addToDb = item => {
     localStorage.setItem('cheka', JSON.stringify(db));
 
 }
+
+const removeItem = item => {
+    const storedItem = localStorage.getItem('cheka');
+    if (storedItem) {
+        const storedObject = JSON.parse(storedItem);
+        delete storedObject[item];
+        localStorage.setItem('cheka', JSON.stringify(storedObject));
+    }  
+}
